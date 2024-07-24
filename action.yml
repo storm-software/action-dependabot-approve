@@ -1,0 +1,28 @@
+# Note: This is a composite GitHub Actions, it should do all env setup, caching an so on, so other pipelines can just compose their own stuff on top of that.
+# Docs: https://docs.github.com/en/actions/creating-actions/creating-a-composite-action
+
+name: "Storm Software - Dependabot Auto-Approve"
+description: "A GitHub action to automatically approve (and dismiss the approval) Dependabot PRs."
+author: "sullivanpj"
+
+branding:
+  icon: "package"
+  color: "gray-dark"
+
+
+runs:
+  using: "node12"
+  main: "dist/index.js"
+
+
+# inputs:
+#   stormBot:
+#     description: The github username of the Storm bot
+#     required: true
+#     default: Stormie-Bot
+#   stormBotGitHubToken:
+#     description: The github token of the Storm bot
+#     required: true
+
+
+
