@@ -14,7 +14,7 @@ if (pull_number === undefined) {
   process.exit(1);
 }
 
-const octokit = github.getOctokit(githubToken);
+const octokit = github.getOctokit(githubToken) as any;
 const approvedString = "true"; // core.getInput("approve", { required: true });
 const approved =
   approvedString === "true"
