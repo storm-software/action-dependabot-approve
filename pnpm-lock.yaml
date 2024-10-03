@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@actions/core':
         specifier: ^1.10.1
-        version: 1.10.1
+        version: 1.11.0
       '@actions/exec':
         specifier: ^1.1.1
         version: 1.1.1
@@ -32,15 +32,15 @@ importers:
     devDependencies:
       '@storm-software/prettier':
         specifier: latest
-        version: 0.11.1(prettier@3.3.3)(typescript@5.5.4)
+        version: 0.26.0(prettier@3.3.3)(typescript@5.5.4)
       prettier:
         specifier: ^3.3.0
         version: 3.3.3
 
 packages:
 
-  '@actions/core@1.10.1':
-    resolution: {integrity: sha512-3lBR9EDAY+iYIpTnTIXmWcNbX3T2kCkAEQGIQx4NVQ0575nk2k3GRZDTPQG+vVtS2izSLmINlxXf0uLtnrTP+g==}
+  '@actions/core@1.11.0':
+    resolution: {integrity: sha512-I21jQUzEjbZolw3jFZ/0iHGCb+rePCww9MaA0SbVFae4FpBTQWP1GIvr/m5Y6GVaxrDz7p3RhBtpBzwkA3rPSA==}
 
   '@actions/exec@1.1.1':
     resolution: {integrity: sha512-+sCcHHbVdk93a0XT19ECtO/gIXoxvdsgQLzb2fE2/5sIZmWQuluYyjPQtrtTHdU1YzTZ7bAPN4sITq2xi1679w==}
@@ -50,6 +50,9 @@ packages:
 
   '@actions/http-client@2.2.1':
     resolution: {integrity: sha512-KhC/cZsq7f8I4LfZSJKgCvEwfkE8o1538VoBeoGzokVLLnbFDEAdFD3UhoMklxo2un9NJVBdANOresx7vTHlHw==}
+
+  '@actions/http-client@2.2.3':
+    resolution: {integrity: sha512-mx8hyJi/hjFvbPokCg4uRd4ZX78t+YyRPtnKWwIl+RzNaVuFpQHfmlGVfsKEJN8LwTCvL+DfVgAM04XaHkm6bA==}
 
   '@actions/io@1.1.3':
     resolution: {integrity: sha512-wi9JjgKLYS7U/z8PPbco+PvTb/nRWjeoFlJ1Qer83k/3C5PHQi28hiVdeE2kHXmIL99mQFawx8qt/JPjZilJ8Q==}
@@ -133,8 +136,11 @@ packages:
   '@prisma/prisma-schema-wasm@4.17.0-26.6b0aef69b7cdfc787f822ecd7cdc76d5f1991584':
     resolution: {integrity: sha512-JFdsnSgBPN8reDTLOI9Vh/6ccCb2aD1LbY/LWQnkcIgNo6IdpzvuM+qRVbBuA6IZP2SdqQI8Lu6RL2P8EFBQUA==}
 
-  '@storm-software/prettier@0.11.1':
-    resolution: {integrity: sha512-5MbDHWH/1vXo2bVbmt/rIjcaqvIQhN39BBl4I7oZod/BcUH3ax278KR0ew97pXe3/+AoLJWxltm1+Qr8kOtruA==}
+  '@solidity-parser/parser@0.17.0':
+    resolution: {integrity: sha512-Nko8R0/kUo391jsEHHxrGM07QFdnPGvlmox4rmH0kNiNAashItAilhy4Mv4pK5gQmW5f4sXAF58fwJbmlkGcVw==}
+
+  '@storm-software/prettier@0.26.0':
+    resolution: {integrity: sha512-hHnDhPIgU5+R9fAOQ9q3aIsB1dnuGwii+ikZz80POZNVjQKWqN+xsAfOEVM+1EfzP0qmYO86CJ87EJxk6VRxgw==}
     peerDependencies:
       prettier: ^3.3.0
       prettier-plugin-tailwindcss: 0.6.5
@@ -195,14 +201,28 @@ packages:
     peerDependencies:
       prettier: ^3.0.3
 
+  prettier-plugin-solidity@1.3.1:
+    resolution: {integrity: sha512-MN4OP5I2gHAzHZG1wcuJl0FsLS3c4Cc5494bbg+6oQWBPuEamjwDvmGfFMZ6NFzsh3Efd9UUxeT7ImgjNH4ozA==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      prettier: '>=2.3.0'
+
   prettier@3.3.3:
     resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
     engines: {node: '>=14'}
     hasBin: true
 
+  semver@7.6.3:
+    resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
+    engines: {node: '>=10'}
+    hasBin: true
+
   sh-syntax@0.4.2:
     resolution: {integrity: sha512-/l2UZ5fhGZLVZa16XQM9/Vq/hezGGbdHeVEA01uWjOL1+7Ek/gt6FquW0iKKws4a9AYPYvlz6RyVvjh3JxOteg==}
     engines: {node: '>=16.0.0'}
+
+  solidity-comments-extractor@0.0.8:
+    resolution: {integrity: sha512-htM7Vn6LhHreR+EglVMd2s+sZhcXAirB1Zlyrv5zBuTxieCvjfnRpd7iZk75m/u6NOlEyQ94C6TWbBn2cY7w8g==}
 
   tslib@2.6.3:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
@@ -226,19 +246,15 @@ packages:
   universal-user-agent@7.0.2:
     resolution: {integrity: sha512-0JCqzSKnStlRRQfCdowvqy3cy0Dvtlb8xecj/H8JFZuCze4rwjPZQOgvFvn0Ws/usCHQFGpyr+pB9adaGwXn4Q==}
 
-  uuid@8.3.2:
-    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
-    hasBin: true
-
   wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
 
 snapshots:
 
-  '@actions/core@1.10.1':
+  '@actions/core@1.11.0':
     dependencies:
-      '@actions/http-client': 2.2.1
-      uuid: 8.3.2
+      '@actions/exec': 1.1.1
+      '@actions/http-client': 2.2.3
 
   '@actions/exec@1.1.1':
     dependencies:
@@ -252,6 +268,11 @@ snapshots:
       '@octokit/plugin-rest-endpoint-methods': 10.4.1(@octokit/core@5.2.0)
 
   '@actions/http-client@2.2.1':
+    dependencies:
+      tunnel: 0.0.6
+      undici: 5.28.4
+
+  '@actions/http-client@2.2.3':
     dependencies:
       tunnel: 0.0.6
       undici: 5.28.4
@@ -354,13 +375,16 @@ snapshots:
 
   '@prisma/prisma-schema-wasm@4.17.0-26.6b0aef69b7cdfc787f822ecd7cdc76d5f1991584': {}
 
-  '@storm-software/prettier@0.11.1(prettier@3.3.3)(typescript@5.5.4)':
+  '@solidity-parser/parser@0.17.0': {}
+
+  '@storm-software/prettier@0.26.0(prettier@3.3.3)(typescript@5.5.4)':
     dependencies:
       prettier: 3.3.3
       prettier-plugin-organize-imports: 4.0.0(prettier@3.3.3)(typescript@5.5.4)
       prettier-plugin-pkg: 0.18.1(prettier@3.3.3)
       prettier-plugin-prisma: 5.0.0(prettier@3.3.3)
       prettier-plugin-sh: 0.14.0(prettier@3.3.3)
+      prettier-plugin-solidity: 1.3.1(prettier@3.3.3)
     transitivePeerDependencies:
       - '@vue/language-plugin-pug'
       - typescript
@@ -402,11 +426,22 @@ snapshots:
       prettier: 3.3.3
       sh-syntax: 0.4.2
 
+  prettier-plugin-solidity@1.3.1(prettier@3.3.3):
+    dependencies:
+      '@solidity-parser/parser': 0.17.0
+      prettier: 3.3.3
+      semver: 7.6.3
+      solidity-comments-extractor: 0.0.8
+
   prettier@3.3.3: {}
+
+  semver@7.6.3: {}
 
   sh-syntax@0.4.2:
     dependencies:
       tslib: 2.6.3
+
+  solidity-comments-extractor@0.0.8: {}
 
   tslib@2.6.3: {}
 
@@ -421,7 +456,5 @@ snapshots:
   universal-user-agent@6.0.1: {}
 
   universal-user-agent@7.0.2: {}
-
-  uuid@8.3.2: {}
 
   wrappy@1.0.2: {}
