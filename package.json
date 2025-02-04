@@ -22,7 +22,7 @@
   },
   "license": "Apache License 2.0",
   "private": true,
-  "packageManager": "pnpm@9.6.0+sha256.dae0f7e822c56b20979bb5965e3b73b8bdabb6b8b8ef121da6d857508599ca35",
+  "packageManager": "pnpm@10.2.0+sha512.0d27364e0139c6aadeed65ada153135e0ca96c8da42123bd50047f961339dc7a758fc2e944b428f52be570d1bd3372455c1c65fa2e7aa0bfbf931190f9552001",
   "engines": {
     "node": ">=20.14.0",
     "pnpm": ">=9.6.0"
