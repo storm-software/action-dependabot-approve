@@ -32,10 +32,10 @@ importers:
     devDependencies:
       '@storm-software/prettier':
         specifier: latest
-        version: 0.11.1(prettier@3.3.3)(typescript@5.5.4)
+        version: 0.32.4(prettier-plugin-prisma@5.0.0(prettier@3.5.1))(prettier@3.5.1)(typescript@5.5.4)
       prettier:
         specifier: ^3.3.0
-        version: 3.3.3
+        version: 3.5.1
 
 packages:
 
@@ -133,12 +133,18 @@ packages:
   '@prisma/prisma-schema-wasm@4.17.0-26.6b0aef69b7cdfc787f822ecd7cdc76d5f1991584':
     resolution: {integrity: sha512-JFdsnSgBPN8reDTLOI9Vh/6ccCb2aD1LbY/LWQnkcIgNo6IdpzvuM+qRVbBuA6IZP2SdqQI8Lu6RL2P8EFBQUA==}
 
-  '@storm-software/prettier@0.11.1':
-    resolution: {integrity: sha512-5MbDHWH/1vXo2bVbmt/rIjcaqvIQhN39BBl4I7oZod/BcUH3ax278KR0ew97pXe3/+AoLJWxltm1+Qr8kOtruA==}
+  '@storm-software/prettier@0.32.4':
+    resolution: {integrity: sha512-s9rhqV6e0Pndx0p3Uc8k7+187pA7CvrC4hRKaaYcnN3GtNyAmztzb6fvYDwXTp9h6pQ/tBL2pKBnvtnRUmPKmw==}
     peerDependencies:
-      prettier: ^3.3.0
+      prettier: ^3.3.3
+      prettier-plugin-prisma: ^5.0.0
+      prettier-plugin-solidity: 1.3.1
       prettier-plugin-tailwindcss: 0.6.5
     peerDependenciesMeta:
+      prettier-plugin-prisma:
+        optional: true
+      prettier-plugin-solidity:
+        optional: true
       prettier-plugin-tailwindcss:
         optional: true
 
@@ -195,8 +201,8 @@ packages:
     peerDependencies:
       prettier: ^3.0.3
 
-  prettier@3.3.3:
-    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
+  prettier@3.5.1:
+    resolution: {integrity: sha512-hPpFQvHwL3Qv5AdRvBFMhnKo4tYxp0ReXiPn2bxkiohEX6mBeBwEpBSQTkD458RaaDKQMYSp4hX4UtfUTA5wDw==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -352,15 +358,17 @@ snapshots:
     dependencies:
       '@octokit/openapi-types': 22.2.0
 
-  '@prisma/prisma-schema-wasm@4.17.0-26.6b0aef69b7cdfc787f822ecd7cdc76d5f1991584': {}
+  '@prisma/prisma-schema-wasm@4.17.0-26.6b0aef69b7cdfc787f822ecd7cdc76d5f1991584':
+    optional: true
 
-  '@storm-software/prettier@0.11.1(prettier@3.3.3)(typescript@5.5.4)':
+  '@storm-software/prettier@0.32.4(prettier-plugin-prisma@5.0.0(prettier@3.5.1))(prettier@3.5.1)(typescript@5.5.4)':
     dependencies:
-      prettier: 3.3.3
-      prettier-plugin-organize-imports: 4.0.0(prettier@3.3.3)(typescript@5.5.4)
-      prettier-plugin-pkg: 0.18.1(prettier@3.3.3)
-      prettier-plugin-prisma: 5.0.0(prettier@3.3.3)
-      prettier-plugin-sh: 0.14.0(prettier@3.3.3)
+      prettier: 3.5.1
+      prettier-plugin-organize-imports: 4.0.0(prettier@3.5.1)(typescript@5.5.4)
+      prettier-plugin-pkg: 0.18.1(prettier@3.5.1)
+      prettier-plugin-sh: 0.14.0(prettier@3.5.1)
+    optionalDependencies:
+      prettier-plugin-prisma: 5.0.0(prettier@3.5.1)
     transitivePeerDependencies:
       - '@vue/language-plugin-pug'
       - typescript
@@ -382,27 +390,28 @@ snapshots:
     dependencies:
       wrappy: 1.0.2
 
-  prettier-plugin-organize-imports@4.0.0(prettier@3.3.3)(typescript@5.5.4):
+  prettier-plugin-organize-imports@4.0.0(prettier@3.5.1)(typescript@5.5.4):
     dependencies:
-      prettier: 3.3.3
+      prettier: 3.5.1
       typescript: 5.5.4
 
-  prettier-plugin-pkg@0.18.1(prettier@3.3.3):
+  prettier-plugin-pkg@0.18.1(prettier@3.5.1):
     dependencies:
-      prettier: 3.3.3
+      prettier: 3.5.1
 
-  prettier-plugin-prisma@5.0.0(prettier@3.3.3):
+  prettier-plugin-prisma@5.0.0(prettier@3.5.1):
     dependencies:
       '@prisma/prisma-schema-wasm': 4.17.0-26.6b0aef69b7cdfc787f822ecd7cdc76d5f1991584
-      prettier: 3.3.3
+      prettier: 3.5.1
+    optional: true
 
-  prettier-plugin-sh@0.14.0(prettier@3.3.3):
+  prettier-plugin-sh@0.14.0(prettier@3.5.1):
     dependencies:
       mvdan-sh: 0.10.1
-      prettier: 3.3.3
+      prettier: 3.5.1
       sh-syntax: 0.4.2
 
-  prettier@3.3.3: {}
+  prettier@3.5.1: {}
 
   sh-syntax@0.4.2:
     dependencies:
