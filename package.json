@@ -29,14 +29,9 @@
   },
   "main": "dist/index.js",
   "keywords": [
-    "storm-stack",
     "storm-software",
     "storm",
-    "storm-ops",
-    "acidic",
-    "cyclone-ui",
-    "sullivanpj",
-    "monorepo"
+    "storm-ops"
   ],
   "scripts": {
     "build": "pnpm exec ncc build ./index.ts"
@@ -46,12 +41,12 @@
     "@actions/exec": "^1.1.1",
     "@actions/github": "^6.0.0",
     "@octokit/core": "^6.1.2",
-    "@types/node": "^12.20.55",
-    "@vercel/ncc": "^0.38.1",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
     "@storm-software/prettier": "latest",
+    "@types/node": "^12.20.55",
+    "@vercel/ncc": "^0.38.1",
     "prettier": "^3.3.0"
   },
   "prettier": "@storm-software/prettier/config.json",

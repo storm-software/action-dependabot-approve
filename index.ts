@@ -41,7 +41,7 @@ async function getLastReviewFromActionsBot() {
   for (const review of [...reviews.data].reverse()) {
     if (
       review.user?.login === "github-actions[bot]" ||
-      review.user?.login === "Stormie-Bot"
+      review.user?.login === "stormie-bot"
     ) {
       return review;
     }
