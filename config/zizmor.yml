@@ -6,8 +6,6 @@ rules:
     ignore:
       - release.yml
       - ci-reusable.yml
-      - git-guardian.yml
-      - dependabot-update.yml
       - codeql.yml
       - security.yml
       - schedule-stale.yml
