@@ -1,54 +1,84 @@
 {
   "name": "action-dependabot-approve",
   "version": "0.0.1",
-  "description": "⚡ The storm-stack monorepo contains utility applications, tools, and various libraries to create modern and scalable web applications.",
+  "description": "A GitHub Action to automatically approve Dependabot PRs.",
+  "keywords": ["github-action", "dependabot", "storm-software"],
+  "homepage": "https://stormsoftware.com",
+  "bugs": "https://github.com/storm-software/action-dependabot-approve/issues",
   "repository": {
     "type": "github",
     "url": "https://github.com/storm-software/action-dependabot-approve.git"
-  },
-  "homepage": "https://stormsoftware.com",
-  "bugs": {
-    "url": "https://stormsoftware.com/support",
-    "email": "support@stormsoftware.com"
-  },
-  "author": {
-    "name": "Storm Software",
-    "email": "contact@stormsoftware.com",
-    "url": "https://stormsoftware.com"
   },
   "funding": {
     "type": "github",
     "url": "https://github.com/sponsors/storm-software"
   },
-  "license": "Apache License 2.0",
-  "private": true,
-  "packageManager": "pnpm@9.6.0+sha256.dae0f7e822c56b20979bb5965e3b73b8bdabb6b8b8ef121da6d857508599ca35",
-  "engines": {
-    "node": ">=20.14.0",
-    "pnpm": ">=9.6.0"
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Storm Software",
+    "email": "contact@stormsoftware.com",
+    "url": "https://stormsoftware.com"
   },
-  "main": "dist/index.js",
-  "keywords": [
-    "storm-software",
-    "storm",
-    "storm-ops"
+  "maintainers": [
+    {
+      "name": "Storm Software",
+      "email": "contact@stormsoftware.com",
+      "url": "https://stormsoftware.com"
+    },
+    {
+      "name": "Pat Sullivan",
+      "email": "admin@stormsoftware.com",
+      "url": "https://patsullivan.org"
+    }
   ],
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.js",
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.cts",
   "scripts": {
-    "build": "pnpm exec ncc build ./index.ts"
-  },
-  "dependencies": {
-    "@actions/core": "^1.10.1",
-    "@actions/exec": "^1.1.1",
-    "@actions/github": "^6.0.0",
-    "@octokit/core": "^6.1.2",
-    "typescript": "^5.5.4"
-  },
-  "devDependencies": {
-    "@storm-software/prettier": "latest",
-    "@types/node": "^12.20.55",
-    "@vercel/ncc": "^0.38.1",
-    "prettier": "^3.3.0"
+    "bootstrap": "pnpm exec zx scripts/bootstrap.mjs",
+    "build": "pnpm exec zx scripts/build.mjs --prod",
+    "build-dev": "pnpm exec zx scripts/build.mjs --dev",
+    "clean": "pnpm exec zx scripts/clean.mjs",
+    "commit": "pnpm exec storm-git commit",
+    "postinstall": "pnpm bootstrap",
+    "lint": "pnpm exec zx scripts/lint.mjs",
+    "nuke": "pnpm exec zx scripts/nuke.mjs",
+    "push": "git push origin main:main",
+    "update-storm": "pnpm exec zx scripts/update-storm.mjs",
+    "view-config": "pnpm exec storm-config"
   },
   "prettier": "@storm-software/prettier/config.json",
+  "dependencies": {
+    "@actions/core": "catalog:",
+    "@actions/exec": "catalog:",
+    "@actions/github": "catalog:",
+    "@octokit/core": "catalog:",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@storm-software/config": "catalog:",
+    "@storm-software/config-tools": "catalog:",
+    "@storm-software/cspell": "catalog:",
+    "@storm-software/eslint": "catalog:",
+    "@storm-software/eslint-plugin-tsdoc": "catalog:",
+    "@storm-software/git-tools": "catalog:",
+    "@storm-software/linting-tools": "catalog:",
+    "@storm-software/markdownlint": "catalog:",
+    "@storm-software/pnpm-tools": "catalog:",
+    "@storm-software/prettier": "catalog:",
+    "@storm-software/tsconfig": "catalog:",
+    "@types/node": "catalog:",
+    "copyfiles": "catalog:",
+    "eslint": "catalog:",
+    "lefthook": "catalog:",
+    "prettier": "catalog:",
+    "rimraf": "catalog:",
+    "tsdown": "catalog:",
+    "unrs-resolver": "catalog:",
+    "zx": "catalog:"
+  },
   "triggerEmptyDevReleaseByIncrementingThisNumber": 0
 }

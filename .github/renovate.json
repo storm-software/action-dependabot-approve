@@ -1,8 +1,4 @@
 {
-    "extends": [
-      "config:base"
-    ],
-    "labels": [
-      "bump:patch"
-    ]
-  }
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>storm-software/renovate-config"]
+}

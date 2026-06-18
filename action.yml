@@ -6,11 +6,9 @@ description: "A GitHub action to automatically approve (and dismiss the approval
 author: "sullivanpj"
 
 branding:
-  icon: "package"
-  color: "gray-dark"
+  icon: "check-circle"
+  color: "green"
 
 runs:
-  using: "node12"
-  main: "dist/src/index.js"
-
-
+  using: "node24"
+  main: "./index.js"

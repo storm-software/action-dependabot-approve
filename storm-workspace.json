@@ -1,0 +1,9 @@
+{
+  "$schema": "https://public.storm-cdn.com/schemas/storm-workspace.schema.json",
+  "extends": "@storm-software/config/presets/storm-software.json",
+  "variant": "minimal",
+  "name": "action-dependabot-approve",
+  "namespace": "storm-software",
+  "repository": "https://github.com/storm-software/action-dependabot-approve",
+  "packageManager": "pnpm"
+}

@@ -1,14 +1,58 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
+#################################
+# GitHub Dependabot Config info #
+#################################
+
 # Please see the documentation for all configuration options:
-# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 
 version: 2
 updates:
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: daily
-      time: "13:00"
+  # Maintain dependencies for npm
+  - package-ecosystem: npm
+    assignees:
+      - stormie-bot
     commit-message:
-      prefix: "fix: "
+      prefix: "deps(monorepo):"
+    directory: /
+    schedule:
+      dependency-type: all
+      interval: weekly
+    ignore:
+      - dependency-name: "{@storm-software/*,@stryke/*,@cyclone-ui/*,@acidic/*,@powerlines/*,@earthquake/*,@nx/*,nx}"
+    open-pull-requests-limit: 1
+    labels:
+      - dependencies
+      - dependabot
+    target-branch: dependabot
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: github-actions
+    assignees:
+      - stormie-bot
+    commit-message:
+      prefix: "deps(monorepo):"
+    directory: /
+    schedule:
+      dependency-type: all
+      interval: weekly
+    open-pull-requests-limit: 1
+    labels:
+      - dependencies
+      - dependabot
+    target-branch: dependabot
+
+  # Maintain dependencies for bundler
+  - package-ecosystem: bundler
+    assignees:
+      - stormie-bot
+    commit-message:
+      prefix: "deps(monorepo):"
+    directory: /
+    schedule:
+      dependency-type: all
+      interval: weekly
+    open-pull-requests-limit: 1
+    labels:
+      - dependencies
+      - dependabot
+    target-branch: dependabot
