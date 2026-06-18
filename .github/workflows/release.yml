@@ -83,7 +83,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup workspace
-        uses: storm-software/action-dependabot-approve@main
+        uses: storm-software/action-devenv-setup@main
         with:
           gpg-sign-key: ${{ secrets.STORM_BOT_GPG_SIGN_KEY }}
           gpg-private-key: ${{ secrets.STORM_BOT_GPG_PRIVATE_KEY }}
