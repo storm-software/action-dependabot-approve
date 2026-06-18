@@ -12,7 +12,7 @@ catalog:
   "@storm-software/cspell": ^0.46.141
   "@storm-software/eslint": ^0.170.106
   "@storm-software/eslint-plugin-tsdoc": ^0.0.36
-  "@storm-software/git-tools": ^2.131.80
+  "@storm-software/git-tools": ^2.131.81
   "@storm-software/linting-tools": ^1.134.3
   "@storm-software/markdownlint": ^0.30.229
   "@storm-software/pnpm-tools": ^0.7.84
@@ -36,4 +36,4 @@ cleanupUnusedCatalogs: true
 minimumReleaseAge: 800
 minimumReleaseAgeExclude:
   - "@storm-software/*"
-  - "conventional-changelog-storm-software"
+  - conventional-changelog-storm-software
