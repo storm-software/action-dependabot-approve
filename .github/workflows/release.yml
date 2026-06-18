@@ -103,7 +103,7 @@ jobs:
         uses: haya14busa/action-bumpr@faf6f474bcb6174125cfc569f0b2e24cbf03d496 # v1.11.4
         with:
           github_token: ${{ secrets.STORM_BOT_GITHUB_TOKEN }}
-          default_bump_level: "minor"
+          default_bump_level: "major"
           tag_as_user: stormie-bot
           tag_as_email: bot@stormsoftware.com
 
@@ -126,7 +126,8 @@ jobs:
           github_token: ${{ secrets.STORM_BOT_GITHUB_TOKEN }}
           tag_name: ${{ steps.tag.outputs.value }}
           release_name: Release ${{ steps.tag.outputs.value }}
-          body: ${{ steps.bump-version.outputs.message }}
+          body: Release ${{ steps.tag.outputs.value }} of the Storm Software - Dependabot Auto-Approve action.
+          make_latest: true
           draft: false
           prerelease: false
 
