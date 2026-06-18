@@ -59,9 +59,10 @@ try {
     );
   }
 
-  proc = $`pnpm copyfiles README.md LICENSE action.yml dist`.timeout(
-    `${30 * 60}s`
-  );
+  proc =
+    $`pnpm copyfiles README.md LICENSE action.yml package.json dist`.timeout(
+      `${30 * 60}s`
+    );
   proc.stdout.on("data", data => {
     echo`${data}`;
   });

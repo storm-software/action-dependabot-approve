@@ -11,6 +11,11 @@ on:
       - main
       - next
       - experimental
+    tags:
+      - "v*.*.*"
+  pull_request:
+    types:
+      - labeled
 
 env:
   CI: true
@@ -52,7 +57,7 @@ jobs:
 
   process:
     name: Release
-    if: always() && !cancelled() && !contains(needs.*.result, 'failure') &&
+    if: github.event.action != 'labeled' && always() && !cancelled() && !contains(needs.*.result, 'failure') &&
       github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     environment: production
@@ -98,29 +103,56 @@ jobs:
           name: dist
           path: dist/
 
-      - name: Bump version and push tag
-        id: tag_version
-        uses: mathieudutour/github-tag-action@a22cf08638b34d5badda920f9daf6e72c477b07b # v6.2
+      - id: bump-version
+        if: "!startsWith(github.ref, 'refs/tags/')"
+        uses: haya14busa/action-bumpr@faf6f474bcb6174125cfc569f0b2e24cbf03d496 # v1.11.4
+
+      - uses: haya14busa/action-update-semver@7d2c558640ea49e798d46539536190aff8c18715 # v1.5.1
+        if: "!steps.bump-version.outputs.skip"
+        with:
+          tag: ${{ steps.bump-version.outputs.next_version }}
+
+      - id: tag
+        uses: haya14busa/action-cond@94f77f7a80cd666cb3155084e428254fea4281fd # v1.2.1
+        with:
+          cond: "${{ startsWith(github.ref, 'refs/tags/') }}"
+          if_true: ${{ github.ref }}
+          if_false: ${{ steps.bump-version.outputs.next_version }}
+
+      - uses: shogo82148/actions-create-release@6a396031bc74c57403da1018fec74d24c6aa03cd # v1.9.0
+        if: "steps.tag.outputs.value != ''"
         with:
           github_token: ${{ secrets.STORM_BOT_GITHUB_TOKEN }}
-          tag_prefix: v
-          dry_run: true
-          default_bump: false
-
-      - uses: marvinpinto/action-automatic-releases@latest
-        if: steps.tag_version.outputs.release_type
-        with:
-          repo_token: "${{ secrets.STORM_BOT_GITHUB_TOKEN }}"
-          automatic_release_tag: ${{ steps.tag_version.outputs.new_tag }}
+          tag_name: ${{ steps.tag.outputs.value }}
+          release_name: Release ${{ steps.tag.outputs.value }}
+          body: ${{ steps.bump-version.outputs.message }}
+          draft: false
           prerelease: false
-          files: |
-            LICENSE.md
-            *.tar.gz
-            *.whl
+
+  release-check:
+    environment: production
+    permissions:
+      contents: write
+      id-token: write
+    needs:
+      - start
+    if: github.event.action == 'labeled' && always() && !cancelled() && !contains(needs.*.result, 'failure') &&
+      github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          token: ${{ secrets.STORM_BOT_GITHUB_TOKEN }}
+          persist-credentials: false
+      - name: Post bump version status comment
+        uses: haya14busa/action-bumpr@faf6f474bcb6174125cfc569f0b2e24cbf03d496 # v1.11.4
 
   success:
     needs:
       - process
+      - release-check
     if: ${{ success() }}
     name: Send success notification
     runs-on: ubuntu-latest
@@ -149,6 +181,7 @@ jobs:
   failure:
     needs:
       - process
+      - release-check
     if: ${{ failure() }}
     name: Send failure notification
     runs-on: ubuntu-latest
@@ -176,6 +209,7 @@ jobs:
   cancelled:
     needs:
       - process
+      - release-check
     if: ${{ cancelled() }}
     name: Send cancelled notification
     runs-on: ubuntu-latest
