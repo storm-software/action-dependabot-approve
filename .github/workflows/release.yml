@@ -129,7 +129,7 @@ jobs:
           body: Release ${{ steps.tag.outputs.value }} of the Storm Software - Dependabot Auto-Approve action.
           make_latest: true
           owner: storm-software
-          repo: action-telegram-notify
+          repo: action-dependabot-approve
 
       - name: Upload release artifact
         if: "steps.tag.outputs.value != ''"
