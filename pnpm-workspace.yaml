@@ -7,17 +7,17 @@ catalog:
   "@actions/exec": ^3.0.0
   "@actions/github": ^9.1.1
   "@octokit/core": ^7.0.6
-  "@storm-software/config": ^1.138.10
-  "@storm-software/config-tools": ^1.190.73
-  "@storm-software/cspell": ^0.46.141
-  "@storm-software/eslint": ^0.170.106
-  "@storm-software/eslint-plugin-tsdoc": ^0.0.36
-  "@storm-software/git-tools": ^2.131.81
-  "@storm-software/linting-tools": ^1.134.3
-  "@storm-software/markdownlint": ^0.30.229
-  "@storm-software/pnpm-tools": ^0.7.84
-  "@storm-software/prettier": ^0.59.126
-  "@storm-software/tsconfig": ^0.48.140
+  "@storm-software/config": ^1.138.11
+  "@storm-software/config-tools": ^1.190.74
+  "@storm-software/cspell": ^0.46.142
+  "@storm-software/eslint": ^0.170.107
+  "@storm-software/eslint-plugin-tsdoc": ^0.0.37
+  "@storm-software/git-tools": ^2.131.82
+  "@storm-software/linting-tools": ^1.134.4
+  "@storm-software/markdownlint": ^0.30.230
+  "@storm-software/pnpm-tools": ^0.7.85
+  "@storm-software/prettier": ^0.59.127
+  "@storm-software/tsconfig": ^0.48.141
   "@types/node": ^25.9.3
   tsdown: ^0.22.3
   unrs-resolver: ^1.12.2
